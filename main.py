@@ -3,7 +3,7 @@ from discord.ext import commands
 import json
 import datetime
 
-TOKEN="ODcyNzc0NzgxNzEwMjUwMDE0.YQuw2w.VTRSv8E9M5FcOan-6q5FLquPu78"
+TOKEN=""
 
 prefix = "$"
 bot = commands.Bot(command_prefix=prefix)
