@@ -1,10 +1,11 @@
 # fakecountry
 A discord bot
 
-## venv
+## Running
 ```bash
-$ cd your-bot-source
+$ cd fakecountry
 $ python3 -m venv bot-env
+$ python3 main.py
 ```
 
 # TODO
