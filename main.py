@@ -1,14 +1,30 @@
 import discord
+from discord.ext import commands
+import json
+import datetime
 
-TOKEN=""
+TOKEN="ODcyNzc0NzgxNzEwMjUwMDE0.YQuw2w.VTRSv8E9M5FcOan-6q5FLquPu78"
 
-class MyClient(discord.Client):
-    async def on_ready(self):
-        print('Logged on as {0}!'.format(self.user))
+prefix = "$"
+bot = commands.Bot(command_prefix=prefix)
 
-    async def on_message(self, message):
-        print('Message from {0.author}: {0.content}'.format(message))
+@bot.event
+async def on_message(message):
+    global msg
+    msg = message
+    await bot.process_commands(message)
 
-client = MyClient()
-client.run(TOKEN)
+@bot.command(
+    name="ping", 
+    help = "Sends the ping of the bot back"
+    )
+async def pingReply(ctx):
+    timeSent = msg.created_at.strftime("%S.%f")
+    timeNow = datetime.datetime.utcnow().strftime("%S.%f")
+    timeDiff = float(timeNow) - float(timeSent)
+    response  = str(timeDiff*1000).replace(".", "")
+    response = "Ping: **" + response[:3] + "ms" +"**"
+    await ctx.channel.send(response)
+
+bot.run(TOKEN)
 
