@@ -3,8 +3,10 @@ from discord.ext import commands
 import json
 import datetime
 import math
+import config 
 
-TOKEN=""
+
+TOKEN=config.getToken()
 
 prefix = "$"
 bot = commands.Bot(command_prefix=prefix)
