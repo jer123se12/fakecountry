@@ -22,8 +22,8 @@ async def pingReply(ctx):
     timeSent = msg.created_at.strftime("%S.%f")
     timeNow = datetime.datetime.utcnow().strftime("%S.%f")
     timeDiff = float(timeNow) - float(timeSent)
-    response  = str(timeDiff*1000).replace(".", "")
-    response = "Ping: **" + response[:3] + "ms" +"**"
+    timeMS  = str(timeDiff*1000).replace(".", "")
+    response = "Ping: **" + timeMS[:3] + "ms" +"**"
     await ctx.channel.send(response)
 
 bot.run(TOKEN)
