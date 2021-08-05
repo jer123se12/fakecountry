@@ -4,7 +4,7 @@ import json
 import datetime
 import math
 
-TOKEN="ODcyNzc0NzgxNzEwMjUwMDE0.YQuw2w.T5mWqbwD3sk-3JmWVhzXcXzmQiI"
+TOKEN=""
 
 prefix = "$"
 bot = commands.Bot(command_prefix=prefix)
