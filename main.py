@@ -42,5 +42,46 @@ async def sorting(ctx, message):
     await ctx.channel.send(','.join([str(a) for a in sorted(l)]))
 
 
+#Join event
+@bot.event
+async def on_member_join(member):
+    print(f'{member} has joined the country.')
+
+#kick command
+re = 'Reason:'
+@bot.command()
+async def kick(ctx, member : discord.Member, *, re, reason=None):
+    await member.kick(reason=reason)
+    await ctx.send(f'{member} has been deported from this country.')
+
+#Leave event
+@bot.event
+async def on_member_remove(member):
+    print(f'{member} has left this country')
+
+#Ban/Unban command
+@bot.command()
+async def ban(ctx, member : discord.Member, *, reason=''):
+    await member.ban(reason=reason)
+    if reason == '':
+       await ctx.send(f'{member} has been exiled from this country for being against the country.') 
+    else:
+        await ctx.send(f'{member} has been exiled from this country for being {reason}.')
+
+@bot.command()
+async def unban(ctx, *, member):
+    banned_users = await ctx.guild.bans()
+    member_name, member_discriminator = member.split('#')
+
+    for ban_entry in banned_users:
+        user = ban_entry.user
+
+        if (user.name, user.discriminator) ==  (member_name, member_discriminator):
+            await ctx.guild.unban(user)
+            await ctx.send(f'{user.mention} has been accepted back into the country.')
+            return
+
+
+
 
 bot.run(TOKEN)
