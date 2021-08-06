@@ -10,4 +10,5 @@ $ python3 main.py
 
 # TODO
 - make bot
-  - add things here...
+- add user profile registration and management
+- add party creation and affiliation
