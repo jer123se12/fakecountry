@@ -1,12 +1,13 @@
 import discord
+import os
 from discord.ext import commands
 import json
 import datetime
 import math
-import config 
+from dotenv import load_dotenv
 
-
-TOKEN=config.getToken()
+load_dotenv()
+TOKEN=os.getenv("TOKEN")
 
 prefix = "$"
 bot = commands.Bot(command_prefix=prefix)
