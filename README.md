@@ -1,7 +1,14 @@
 # fakecountry
 A discord bot
 
-## Running
+# Dependancy 
+dotenv
+```bash
+$ pip3 install python-dotenv
+
+```
+
+# Running
 ```bash
 $ cd fakecountry
 $ python3 -m venv bot-env
