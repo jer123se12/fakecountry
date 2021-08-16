@@ -64,7 +64,7 @@ async def on_member_remove(member):
 async def ban(ctx, member : discord.Member, *, reason=''):
     await member.ban(reason=reason)
     if reason == '':
-       await ctx.send(f'{member} has been exiled from this country for being against the country.') 
+       await ctx.send(f'{member} has been exiled from this country for being treason.') 
     else:
         await ctx.send(f'{member} has been exiled from this country for being {reason}.')
 
